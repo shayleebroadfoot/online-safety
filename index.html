@@ -1,14 +1,145 @@
+<!-- index.html -->
+
 <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Safety</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Online Safety Training</h1>
+    </header>
+    <main>
+        <section id="modules">
+            <h2>Select a Module to Start</h2>
+            <div class="module">
+                <h3>Phishing and Scams</h3>
+                <p>Learn how to identify phishing attempts and protect yourself from online scams.</p>
+                <button onclick="navigateTo('modules/phishing/index.html')">Start Phishing Module</button>
+            </div>
+            <div class="module">
+                <h3>Hate and Harassment</h3>
+                <p>Understand how to navigate online spaces safely while avoiding hate and harassment.</p>
+                <button onclick="navigateTo('modules/harassment/index.html')">Start Hate and Harassment Module</button>
+            </div>
+        </section>
+    </main>
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Online Safety</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-    <script src='main.js'></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='css/style.css'>
+    <script src='js/main.js'></script>
 </head>
 <body>
-    
+
+    <header>
+        <h1>Introduction to Phishing and Scams</h1>
+    </header>
+
+    <main>
+        <section id="what-is-phishing">
+            <h2>What is Phishing?</h2>
+            <p>Phishing is a form of cybercrime where attackers impersonate legitimate organizations or individuals to deceive people into revealing sensitive information, such as passwords, credit card numbers, or personal details. This is often achieved through fraudulent emails, websites, or messages that appear authentic. A 2021 study emphasizes that phishing remains one of the most common and evolving cyber threats, targeting individuals across platforms such as email, messaging apps, and social media.</p>
+        </section>
+
+        <section id="what-are-scams">
+            <h2>What are Scams?</h2>
+            <p>Scams are deceptive schemes designed to defraud individuals. These extend beyond phishing and include various fraudulent activities:</p>
+            <ul>
+                <li><strong>Fake Job Offers:</strong> Fraudulent employment opportunities often request personal information or upfront payments. Studies indicate that attackers frequently exploit job platforms to target unsuspecting individuals.</li>
+                <li><strong>Rental Scams:</strong> Listings for properties that do not exist or are already occupied are designed to collect deposits fraudulently from potential renters.</li>
+                <li><strong>Online Shopping Fraud:</strong> Fake e-commerce websites take payments without delivering the promised goods, exploiting unsuspecting shoppers.</li>
+            </ul>
+        </section>
+
+        <section id="phishing-examples">
+            <h3>Examples of Phishing Techniques</h3>
+            <ul>
+                <li><strong>Fake Emails:</strong> Messages crafted to look like they come from trusted sources often urge recipients to click on malicious links or provide personal information. Attackers exploit trust and urgency to deceive users.</li>
+                <li><strong>Deceptive Websites:</strong> These sites mimic legitimate ones, tricking users into entering their credentials. Research highlights that attackers use URLs resembling authentic ones to mislead individuals into believing the sites are genuine.</li>
+                <li><strong>Fraudulent SMS (Smishing):</strong> Text messages that claim to be from reputable organizations often prompt users to click on harmful links or disclose sensitive information.</li>
+            </ul>
+        </section>
+
+        <section id="psychology-of-phishing">
+            <h3>The Psychology of Phishing</h3>
+            <p>Phishing attacks rely heavily on social engineering techniques, exploiting human emotions like trust, fear, and urgency. Attackers often:
+            </p>
+            <ul>
+                <li>Create a sense of urgency, such as warning users that their accounts will be deactivated unless they act immediately.</li>
+                <li>Exploit authority by impersonating figures like government officials, professors, or employers to gain trust.</li>
+                <li>Use personalized messages that include names or other personal details to appear more legitimate and convincing.</li>
+            </ul>
+            <p>Studies show that even well-educated individuals are susceptible to phishing due to cognitive biases and emotional manipulation embedded in these tactics.</p>
+        </section>
+
+        <section id="why-it-matters">
+            <h2>Why It Matters</h2>
+            <p>Falling victim to phishing or scams can lead to significant consequences, especially for students:</p>
+            <ul>
+                <li><strong>Financial Loss:</strong> Unauthorized transactions or theft of funds can create severe financial strain.</li>
+                <li><strong>Compromised Personal Data:</strong> Identity theft or misuse of sensitive information often results in long-term issues.</li>
+                <li><strong>Emotional Distress:</strong> Victims frequently experience stress, anxiety, and embarrassment after being scammed.</li>
+            </ul>
+            <p>International students, in particular, may face additional challenges due to unfamiliarity with local customs and digital threats. For instance, phishing schemes often exploit fears related to immigration or fake tax penalties, making these groups more vulnerable to such attacks.</p>
+        </section>
+
+        <section id="recognizing-phishing">
+            <h2>Recognizing Phishing Attempts</h2>
+            <ul>
+              <li><strong>Suspicious Email Addresses:</strong> Look for generic domains like @gmail.com instead of official ones like @university.edu.</li>
+              <li><strong>Spelling/Grammar Mistakes:</strong> Many phishing emails contain errors that make them less professional.</li>
+              <li><strong>Urgent Language or Threats:</strong> Messages may say "Your account will be locked unless you act now."</li>
+              <li><strong>Requests for Personal Information:</strong> Be cautious if asked to share passwords, banking details, or other sensitive information.</li>
+            </ul>
+            <p>Below is an interactive quiz to test your ability to identify phishing attempts:</p>
+          </section>
+        
+        <section id="phishing-module">
+            <h2>Learn to Identify Phishing Scams</h2>
+            <p>Want to improve your skills in recognizing phishing emails and scams? Start with our interactive module to learn how to protect yourself.</p>
+            <button onclick="openModule()">Start Learning</button>
+        </section>
+
+
+        <section id="pre-module-quiz">
+            <p>Test your ability to recognize phishing attempts by taking the pre-module quiz!</p>
+            <button onclick="openQuizTab('quizzes/pre-quiz.html')">Start Pre-Quiz</button>
+        </section>
+
+
+        <section id="post-module-quiz"></section>
+            <button onclick="openQuizTab('quizzes/post-quiz.html')">Start Post-Quiz</button>
+        </section>
+          
+        <section id="references">
+            <h2>References</h2>
+            <ol>
+                <li>"Phishing Attacks: A Recent Comprehensive Study and a New Anatomy," Frontiers in Computer Science, 2021. <a href="https://www.frontiersin.org/articles/10.3389/fcomp.2021.563060/full" target="_blank">Read here</a>.</li>
+                <li>"How Good Are We at Detecting a Phishing Attack?," NCBI, 2022. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8864450/" target="_blank">Read here</a>.</li>
+                <li>"Understanding Phishers' Strategies of Mimicking URLs," arXiv, 2020. <a href="https://arxiv.org/abs/2007.00489" target="_blank">Read here</a>.</li>
+                <li>"Phishing Mitigation Techniques: A Literature Survey," arXiv, 2021. <a href="https://arxiv.org/abs/2104.06989" target="_blank">Read here</a>.</li>
+            </ol>
+        </section>
+
+    </main>
+
+
+    <script src="main.js"></script>
 </body>
-</html>
+</html> -->
