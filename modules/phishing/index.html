@@ -1,17 +1,27 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Phishing Awareness Module</title>
+    <title>Phishing & Scams</title>
     <link rel="stylesheet" href="../../css/module-style.css">
     <script src="../../js/phishing.js" defer></script>
 </head>
-<body>
+<body class="phishing-module">
     <header>
         <h1>Phishing Awareness Module</h1>
     </header>
+    
+    <!-- Navigation Bar -->
+    <nav>
+        <ul class="tabs">
+            <li><a href="../../index.html">Home</a></li>
+            <li><a href="index.html" class="active">Phishing & Scams</a></li>
+            <li><a href="../harassment/index.html">Hate & Harassment</a></li>
+            <li><a href="../../resources.html">Resources</a></li>
+        </ul>
+    </nav>
+    
     <main>
         <!-- Progress Bar -->
         <div id="progress-bar-container">
@@ -19,81 +29,113 @@
         </div>
 
         <!-- Pre-Quiz Section -->
-        <section id="step-0" class="step active">
-            <h2>Pre-Quiz: Test Your Skills</h2>
-            <p>Before diving into the module, take this short quiz to see how well you can identify phishing attempts.</p>
-            <button onclick="navigateTo('pre-quiz.html')">Start Pre-Quiz</button>
+        <section id="pre-quiz">
+            <h2>Pre-Quiz: Test Your Knowledge</h2>
+            <p>Before learning more about phishing, take a quick quiz to see how well you can recognize phishing attempts.</p>
+            <button id="pre-quiz-btn" onclick="navigateTo('pre-quiz.html')">Start Pre-Quiz</button>
         </section>
 
-        <!-- Section 1: Introduction -->
-        <section id="step-1" class="step active">
-            <h2>Welcome to the Phishing Awareness Module</h2>
-            <p>Phishing is a cybercrime where attackers impersonate trusted entities to trick you into sharing sensitive information. This module will teach you how to identify and avoid phishing scams.</p>
-            <button onclick="nextStep()">Start Learning</button>
+        <section id="intro">
+            <h2>Understanding Phishing</h2>
+            <p>Phishing is a cybercrime in which attackers impersonate legitimate entities to trick individuals into revealing sensitive information, such as passwords and financial details. Phishing is one of the most common cybersecurity threats today.</p>
+            <p>According to the <a href="https://www.cisa.gov/topics/cyber-threats-and-advisories/phishing" target="_blank">Cybersecurity & Infrastructure Security Agency (CISA)</a>, phishing attempts have increased by over 65% in the last few years.</p>
         </section>
-
-        <!-- Section 2: Anatomy of a Phishing Email -->
-        <section id="step-2" class="step">
-            <h2>Spotting Phishing in Emails</h2>
-            <p>Click on the suspicious elements in this email to learn more about phishing techniques.</p>
-            <div class="email-example">
-                <img src="../../assets/images/phishing/email-example.png" alt="Phishing Email" id="phishing-email">
-                <div class="interactive-elements">
-                    <button class="email-part" style="top: 20%; left: 15%;" onclick="showPopup('This email address looks suspicious because it uses a generic domain like @gmail.com instead of an official organization.')">Sender Address</button>
-                    <button class="email-part" style="top: 50%; left: 25%;" onclick="showPopup('This link redirects to a suspicious URL. Always hover over links before clicking!')">Link</button>
-                    <button class="email-part" style="top: 70%; left: 40%;" onclick="showPopup('This urgent language creates unnecessary panic. Be cautious of emails that pressure you to act fast.')">Urgent Language</button>
-                </div>
-            </div>
-            <button onclick="nextStep()">Next</button>
+        
+        <section id="email-phishing">
+            <h2>Email Phishing: What to Watch For</h2>
+            <p>Email phishing is the most common type of phishing attack. Cybercriminals send fraudulent emails that appear to be from trusted sources to trick recipients into clicking malicious links or downloading malware.</p>
+            <ul>
+                <li><strong>Suspicious Sender Address:</strong> Attackers often use fake email addresses that resemble official ones.</li>
+                <li><strong>Urgent or Threatening Language:</strong> Emails may create panic to rush victims into action.</li>
+                <li><strong>Links and Attachments:</strong> These often contain malware or direct users to fake websites.</li>
+            </ul>
+            <!-- <img src="../../assets/images/phishing/email-example.png" alt="Phishing Email Example"> -->
         </section>
-
-        <!-- Section 3: Smishing and Vishing -->
-        <section id="step-3" class="step">
-            <h2>What About Smishing and Vishing?</h2>
-            <p>Phishing doesn’t just happen through emails. Learn about these other forms of phishing:</p>
+        
+        <section id="smishing-vishing">
+            <h2>Other Types of Phishing: Smishing & Vishing</h2>
             <div class="phishing-types">
                 <div class="type">
-                    <h3>Smishing</h3>
-                    <p>Phishing via text messages (SMS). Attackers often send fake texts claiming to be from banks or delivery companies.</p>
-                    <img src="../../assets/images/phishing/smishing-example.png" alt="Smishing Example">
+                    <h3>Smishing (SMS Phishing)</h3>
+                    <p>Attackers send fraudulent text messages pretending to be from banks, delivery companies, or government agencies.</p>
+                    <!-- <img src="../../assets/images/phishing/smishing-example.png" alt="Smishing Example"> -->
                 </div>
                 <div class="type">
-                    <h3>Vishing</h3>
-                    <p>Phishing via voice calls. Scammers impersonate bank representatives or government officials to steal information.</p>
-                    <img src="../../assets/images/phishing/vishing-example.png" alt="Vishing Example">
+                    <h3>Vishing (Voice Phishing)</h3>
+                    <p>Scammers use phone calls to impersonate trusted entities and steal sensitive information.</p>
+                    <!-- <img src="../../assets/images/phishing/vishing-example.png" alt="Vishing Example"> -->
                 </div>
             </div>
-            <button onclick="nextStep()">Next</button>
         </section>
-
-        <!-- Section 4: Tips for Staying Safe -->
-        <section id="step-4" class="step">
-            <h2>How to Stay Safe</h2>
+        
+        <section id="preventing-phishing">
+            <h2>How to Protect Yourself</h2>
             <ul>
-                <li><strong>Hover Over Links:</strong> Always check where links lead before clicking.</li>
-                <li><strong>Verify Senders:</strong> Check email addresses for suspicious domains.</li>
-                <li><strong>Use Multi-Factor Authentication:</strong> Add an extra layer of security to your accounts.</li>
-                <li><strong>Be Wary of Urgency:</strong> Avoid acting on emails that pressure you to "Act Now!"</li>
-                <li><strong>Report Suspicious Emails:</strong> Inform your IT team or email provider about any suspicious emails.</li>
+                <li><strong>Verify Email Senders:</strong> Always double-check the sender’s address before clicking on links.</li>
+                <li><strong>Hover Over Links:</strong> Inspect links before clicking to ensure they lead to legitimate websites.</li>
+                <li><strong>Use Multi-Factor Authentication:</strong> This adds an extra layer of security in case your credentials are compromised.</li>
+                <li><strong>Report Suspicious Emails:</strong> If you receive a phishing email, report it to your IT team or email provider.</li>
             </ul>
-            <button onclick="nextStep()">Finish Module</button>
         </section>
 
-        <!-- Completion Section -->
-        <section id="completion" class="step">
-            <h2>Congratulations!</h2>
-            <p>You’ve completed the phishing awareness module. You're now better prepared to identify phishing scams.</p>
+        <!-- Post-Quiz Section -->
+        <section id="post-quiz">
+            <h2>Post-Quiz: Assess Your Learning</h2>
+            <p>Now that you've completed the phishing awareness module, test your knowledge again.</p>
             <button onclick="navigateTo('post-quiz.html')">Take the Post-Quiz</button>
         </section>
     </main>
 
-    <!-- Popup -->
-    <div id="popup" class="hidden">
-        <div class="popup-content">
-            <p id="popup-text"></p>
-            <button onclick="closePopup()">Close</button>
-        </div>
-    </div>
-</body>
-</html>
+    <script> 
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("Phishing Module Loaded");
+            initializeModule();
+        });
 
+        function initializeModule() {
+            console.log("Initializing module...");
+
+            const steps = document.querySelectorAll('.step');
+            const progressBar = document.getElementById('progress-bar');
+            const preQuizButton = document.getElementById('pre-quiz-btn');
+
+            // Ensure pre-quiz button exists before modifying it
+            if (preQuizButton) {
+                if (localStorage.getItem('preQuizComplete') === 'true') {
+                    preQuizButton.disabled = true;
+                    preQuizButton.innerText = "Completed ✅";
+                }
+            } else {
+                console.warn("pre-quiz-btn not found in DOM.");
+            }
+
+            // Ensure progress bar exists before modifying it
+            if (progressBar) {
+                let progress = localStorage.getItem('preQuizComplete') === 'true' ? 50 : 0;
+                progressBar.style.width = `${progress}%`;
+            } else {
+                console.warn("progress-bar not found in DOM.");
+            }
+
+            // Unlock full module if pre-quiz is completed
+            if (localStorage.getItem('preQuizComplete') === 'true') {
+                steps.forEach(step => {
+                    step.style.opacity = 1;
+                    step.style.pointerEvents = 'auto';
+                });
+            } else {
+                steps.forEach((step, index) => {
+                    if (index === 0) {
+                        step.style.opacity = 1;
+                        step.style.pointerEvents = 'auto';
+                    } else {
+                        step.style.opacity = 0.5;
+                        step.style.pointerEvents = 'none';
+                    }
+                });
+            }
+        }
+    </script>
+</body>
+
+</html>

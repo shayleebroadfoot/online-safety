@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phishing Pre-Quiz</title>
     <link rel="stylesheet" href="../../css/module-style.css">
+    <script src="../../js/phishing.js" defer></script>
 </head>
 <body class="post-quiz">
     <header>
@@ -30,5 +31,12 @@
             <button onclick="goToModule()">Back to Phishing Module</button>
         </div>        
     </main>
-    <script src="../../js/phishing.js"></script>
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("Post-Quiz Page Loaded");
+            startQuiz(false); // Post-quiz should pass `false`
+        });
+        
+    </script>
 </body>

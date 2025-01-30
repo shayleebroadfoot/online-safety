@@ -1,5 +1,4 @@
 <!-- pre-quiz.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phishing Pre-Quiz</title>
     <link rel="stylesheet" href="../../css/module-style.css">
-    <script src="../../js/phishing.js"></script>
+    <link rel="stylesheet" href="../../css/quiz-style.css">
+    <script src="../../js/phishing.js" defer></script>
 </head>
 <body class="pre-quiz">
     <header>
@@ -23,16 +23,26 @@
                 <button onclick="checkAnswer('legitimate')">Legitimate</button>
             </div>
         </div>
-        <div id="completion-message" style="display: none;">
-            <h2>Thank You!</h2>
-            <p>You’ve completed the pre-quiz. Your score has been saved. You’ll see your results after completing the module and the post-quiz.</p>
+
+       <div id="question-feedback"></div> <!-- Empty for pre-quiz but needed as element referenced in script for post-quiz -->
+
+        <!-- Embedded Completion Message -->
+        <div id="completion-message" class="hidden">
+            <h2>Pre-Quiz Complete!</h2>
+            <p>Your score has been saved. You’ll see your results after completing the module and the post-quiz.</p>
             <button onclick="goToModule()">Continue to the Phishing Module</button>
         </div>
     </main>
+
     <script>
-        // Redirect to module after the quiz
+        document.addEventListener("DOMContentLoaded", function () {
+            console.log("Pre-Quiz Page Loaded");
+            startQuiz(true);
+        });
+
         function goToModule() {
-            window.location.href = "index.html"; // Update this path as needed
+            localStorage.setItem('preQuizComplete', 'true'); // Mark pre-quiz as complete
+            window.location.href = "index.html"; // Redirect back to phishing module
         }
     </script>
 </body>
