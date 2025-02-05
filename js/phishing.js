@@ -118,6 +118,47 @@ const quizQuestions = [
 //     }
 // }
 
+function initializeModule() {
+    console.log("Initializing module...");
+
+    const steps = document.querySelectorAll('.step');
+    const progressBar = document.getElementById('progress-bar');
+    const preQuizButton = document.getElementById('pre-quiz-btn');
+
+    // Lock module if pre-quiz is not completed
+    if (localStorage.getItem("preQuizComplete") !== "true") {
+        console.log("Pre-quiz NOT completed. Locking module.");
+        steps.forEach((step, index) => {
+            if (index === 0) {
+                step.style.opacity = 1;
+                step.style.pointerEvents = "auto";
+            } else {
+                step.style.opacity = 0.5;
+                step.style.pointerEvents = "none";
+            }
+        });
+    } else {
+        console.log("Pre-quiz completed. Unlocking module.");
+        steps.forEach(step => {
+            step.style.opacity = 1;
+            step.style.pointerEvents = "auto";
+        });
+    }
+
+    // Ensure pre-quiz button updates correctly
+    if (preQuizButton) {
+        if (localStorage.getItem("preQuizComplete") === "true") {
+            preQuizButton.disabled = true;
+            preQuizButton.innerText = "Completed ✅";
+        }
+    } else {
+        console.warn("pre-quiz-btn not found in DOM.");
+    }
+
+    // Ensure progress bar updates correctly
+    updateProgressBar();
+}
+
 // Quiz Logic
 let currentQuestion = 0;
 let score = 0;
@@ -193,12 +234,21 @@ function checkAnswer(answer) {
 function showResults() {
     document.querySelector("#quiz-content").style.display = "none";
 
+    // if (isPreQuiz) {
+    //     localStorage.setItem("preQuizResults", JSON.stringify(feedback));
+    //     localStorage.setItem("preQuizScore", score.toString());
+    //     document.getElementById("completion-message").style.display = "block";
+    //     unlockModule();
     if (isPreQuiz) {
-        localStorage.setItem("preQuizResults", JSON.stringify(feedback));
-        localStorage.setItem("preQuizScore", score.toString());
-        document.getElementById("completion-message").style.display = "block";
+        if (!localStorage.getItem("preQuizResults")) {
+            localStorage.setItem("preQuizResults", JSON.stringify(feedback)); 
+            localStorage.setItem("preQuizScore", score.toString()); 
+        }
         unlockModule();
     } else {
+        localStorage.setItem("postQuizComplete", "true"); // Mark post-quiz as done
+        updateProgressBar(); // Update progress bar to 100%
+        
         const preQuizResults = JSON.parse(localStorage.getItem("preQuizResults")) || [];
         const feedbackContainer = document.getElementById("feedback-container");
 
@@ -270,18 +320,75 @@ function showCompletionMessage() {
 function unlockModule() {
     localStorage.setItem('preQuizComplete', 'true');
     localStorage.setItem('preQuizScore', score);
-
+    updateProgressBar();
     showCompletionMessage();
-    //navigateTo('index.html');
 }
 
-// Reset the pre-quiz and previous score so you can access it again
+// Update progress bar function
+function updateProgressBar() {
+    const progressBar = document.getElementById('progress-bar');
+    if (!progressBar) return;
+
+    if (localStorage.getItem("preQuizComplete") === "true" && localStorage.getItem("postQuizComplete") === "true") {
+        progressBar.style.width = "100%";
+    } else if (localStorage.getItem("preQuizComplete") === "true") {
+        progressBar.style.width = "50%";
+    } else {
+        progressBar.style.width = "0%";
+    }
+}
+
+// Ensure progress updates after post-quiz
+function completePostQuiz() {
+    localStorage.setItem('postQuizComplete', 'true');
+    updateProgressBar();
+}
+
+// Reset the pre-quiz and previous score so users can redo it
 function resetQuiz() {
     if (confirm("Are you sure you want to reset the Pre-Quiz? Your progress will be lost.")) {
         localStorage.removeItem("preQuizComplete");
         localStorage.removeItem("preQuizScore");
-        localStorage.removeItem("preQuizResults"); // Clear pre-quiz answer data
+        localStorage.removeItem("preQuizResults");
+        localStorage.removeItem("postQuizComplete"); // Reset post-quiz as well
+
+        updateProgressBar();
+        initializeModule(); // Re-lock the module
         location.reload(); // Refresh the page to reflect changes
     }
 }
+
+// function resetQuiz() {
+//     if (confirm("Are you sure you want to reset the Pre-Quiz? Your progress will be lost.")) {
+//         localStorage.removeItem("preQuizComplete");
+//         localStorage.removeItem("preQuizScore");
+//         localStorage.removeItem("preQuizResults");
+//         localStorage.removeItem("postQuizComplete"); // Also reset post-quiz progress
+//         updateProgressBar();
+//         location.reload(); // Refresh the page to reflect changes
+//     }
+// }
+
+// Call updateProgressBar() when the page loads
+// document.addEventListener("DOMContentLoaded", function () {
+//     updateProgressBar();
+// });
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Initializing page...");
+
+    if (document.body.classList.contains("phishing-module")) {
+        console.log("Phishing module detected. Running initializeModule().");
+        initializeModule();
+    }
+
+    if (document.body.classList.contains("pre-quiz")) {
+        console.log("Pre-Quiz Page Loaded");
+        startQuiz(true);
+    }
+
+    if (document.body.classList.contains("post-quiz")) {
+        console.log("Post-Quiz Page Loaded");
+        startQuiz(false);
+    }
+});
 
