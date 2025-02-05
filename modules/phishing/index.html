@@ -30,11 +30,16 @@
 
         <!-- Pre-Quiz Section -->
         <section id="pre-quiz">
-            <h2>Pre-Quiz: Test Your Knowledge</h2>
+            <div class="pre-quiz-header">
+                <h2>Pre-Quiz: Test Your Knowledge</h2> 
+                <button id="reset-quiz-btn" onclick="resetQuiz()">
+                    <img src="../../assets/icons/reset.svg" alt="Reset Quiz">
+                </button>
+            </div>
             <p>Before learning more about phishing, take a quick quiz to see how well you can recognize phishing attempts.</p>
             <button id="pre-quiz-btn" onclick="navigateTo('pre-quiz.html')">Start Pre-Quiz</button>
         </section>
-
+        
         <section id="intro">
             <h2>Understanding Phishing</h2>
             <p>Phishing is a cybercrime in which attackers impersonate legitimate entities to trick individuals into revealing sensitive information, such as passwords and financial details. Phishing is one of the most common cybersecurity threats today.</p>

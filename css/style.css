@@ -18,7 +18,7 @@ body {
     color: #333;
 }
 
-/* Adding a semi-transparent overlay to ensure readability */
+/* Adding a semi-transparent overlay */
 body::before {
     content: "";
     position: absolute;
@@ -57,7 +57,7 @@ nav ul {
     list-style: none;
     margin: 0;
     padding: 0;
-    background: #283593; /* Slightly lighter navy */
+    background: #283593; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
@@ -76,16 +76,7 @@ nav ul li a {
 
 nav ul li a:hover, 
 nav ul li a.active {
-    /* background: #fff; 
-    color: #333; 
-    border: 2px solid #ccc; 
-    padding: 12px 22px; 
-    margin: 4px 0; 
-    border-radius: 8px; 
-    transition: 0.3s ease-in-out;
-    transform: scale(1.05); */
-
-    background: #F7F7F7; /* Soft grey tint instead of pure white */
+    background: #F7F7F7; 
     border: 0.5px solid rgba(0, 0, 0, 0.2); 
     color: #1E2A78;
     padding: 12px 20px;
@@ -215,6 +206,7 @@ section {
 #intro {
     position: relative;
     padding: 2rem;
+    
     background: linear-gradient(90deg, #6A0DAD, #0084FF, #02AAB0); /* Purple, Blue, and Teal */
     color: white;
     border-radius: 10px;

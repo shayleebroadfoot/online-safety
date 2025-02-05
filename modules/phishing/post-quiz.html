@@ -37,6 +37,10 @@
             console.log("Post-Quiz Page Loaded");
             startQuiz(false); // Post-quiz should pass `false`
         });
-        
+
+        function goToModule() {
+            //localStorage.setItem('preQuizComplete', 'true'); // Mark pre-quiz as complete
+            window.location.href = "index.html"; // Redirect back to phishing module
+        }
     </script>
 </body>

@@ -249,3 +249,14 @@ function unlockModule() {
     showCompletionMessage();
     //navigateTo('index.html');
 }
+
+// Reset the pre-quiz and previous score so you can access it again
+function resetQuiz() {
+    if (confirm("Are you sure you want to reset the Pre-Quiz? Your progress will be lost.")) {
+        localStorage.removeItem("preQuizComplete");
+        localStorage.removeItem("preQuizScore");
+        localStorage.removeItem("preQuizResults");
+        location.reload(); // Refresh the page to reflect changes
+    }
+}
+
