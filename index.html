@@ -1,14 +1,124 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>Online Safety</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='style.css'>
-    <script src='main.js'></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Safety Hub</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body>
-    
+<body class="main-page">
+    <!-- Header Section -->
+    <header>
+        <h1>Welcome to the Online Safety Hub</h1>
+        <p>Your trusted guide to navigating the digital world safely and confidently.</p>
+    </header>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <ul class="tabs">
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="modules/phishing/index.html">Phishing & Scams</a></li>
+            <li><a href="modules/harassment/index.html">Hate & Harassment</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+    </nav>
+
+    <!-- Interactive Content Section -->
+    <main>
+        <!-- Introduction Section -->
+        <section id="intro">
+            <div class="intro-content">
+                <h2>Why Learn About Online Safety?</h2>
+                <p>
+                    As technology evolves, so do the risks of being online. From deceptive phishing emails 
+                    to harmful online harassment, it’s essential to know how to protect yourself online. 
+                    This website is here to help you:
+                </p>
+                <div class="intro-highlights">
+                    <div class="highlight">
+                        <img src="assets/icons/shield-icon.svg" alt="Shield Icon">
+                        <p><strong>Stay Safe Online:</strong> Learn to recognize common online threats and protect yourself effectively.</p>
+                    </div>
+                    <div class="highlight">
+                        <img src="assets/icons/privacy-icon.svg" alt="Privacy Icon">
+                        <p><strong>Protect Your Privacy:</strong> Get practical tips to protect yourself from various forms of online abuse.</p>
+                    </div>
+                    <div class="highlight">
+                        <img src="assets/icons/progress-icon.svg" alt="Progress Icon">
+                        <p><strong>Track Your Progress:</strong> Test your knowledge and improve your online safety skills.</p>
+                    </div>
+                    <div class="highlight">
+                        <img src="assets/icons/respect-icon.svg" alt="Globe Icon">
+                        <p><strong>Navigate Safely Online:</strong> Understand digital etiquette to foster positive and respectful interactions.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Modules Section -->
+        <section id="featured-modules">
+            <h2>Explore Our Modules</h2>
+            <div class="modules-grid">
+                <!-- Phishing Module -->
+                <div class="module-card">
+                    <img src="assets/images/phishing/phishing-graphic.svg" alt="Phishing Graphic">
+                    <h3>Phishing & Scams</h3>
+                    <p>
+                        Learn how to identify and protect yourself from phishing emails, scams, and fraudulent websites.
+                    </p>
+                    <button onclick="navigateTo('modules/phishing/index.html')">Start Module</button>
+                </div>
+                <!-- Harassment Module -->
+                <div class="module-card">
+                    <img src="assets/images/harassment/harassment-graphic.svg" alt="Harassment Graphic">
+                    <h3>Hate & Harassment</h3>
+                    <p>
+                        Understand harmful online behaviors and learn steps to protect yourself against online harassment.
+                    </p>
+                    <button onclick="navigateTo('modules/harassment/index.html')">Start Module</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- How to Use the Hub -->
+        <section id="how-to-use">
+            <h2>How to Use the Online Safety Hub</h2>
+            <div class="interactive-steps">
+                <div class="step">
+                    <h3>Step 1</h3>
+                    <p>Start with a module of your choice: <a href="modules/phishing/index.html">Phishing & Scams</a> or <a href="modules/harassment/index.html">Hate & Harassment</a>.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 2</h3>
+                    <p>Explore interactive content and learn practical online safety techniques.</p>
+                </div>
+                <div class="step">
+                    <h3>Step 3</h3>
+                    <p>Take quizzes to test your knowledge and track your progress along the way.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section id="cta">
+            <h2>Ready to Get Started?</h2>
+            <p>Click below to begin your journey to safer online practices!</p>
+            <div class="cta-buttons">
+                <button onclick="navigateTo('modules/phishing/index.html')">Start Phishing Module</button>
+                <button onclick="navigateTo('modules/harassment/index.html')">Start Harassment Module</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+
+    </footer>
+
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
 </body>
 </html>

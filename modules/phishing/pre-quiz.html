@@ -1,0 +1,39 @@
+<!-- pre-quiz.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phishing Pre-Quiz</title>
+    <link rel="stylesheet" href="../../css/module-style.css">
+    <script src="../../js/phishing.js"></script>
+</head>
+<body class="pre-quiz">
+    <header>
+        <h1>Phishing Pre-Quiz</h1>
+    </header>
+    <main class="quiz-container">
+        <div id="quiz-content">
+            <div class="question">
+                <img id="email-image" src="" alt="Email Example">
+            </div>
+            <div class="quiz-options">
+                <button onclick="checkAnswer('phishing')">Phishing</button>
+                <button onclick="checkAnswer('legitimate')">Legitimate</button>
+            </div>
+        </div>
+        <div id="completion-message" style="display: none;">
+            <h2>Thank You!</h2>
+            <p>You’ve completed the pre-quiz. Your score has been saved. You’ll see your results after completing the module and the post-quiz.</p>
+            <button onclick="goToModule()">Continue to the Phishing Module</button>
+        </div>
+    </main>
+    <script>
+        // Redirect to module after the quiz
+        function goToModule() {
+            window.location.href = "index.html"; // Update this path as needed
+        }
+    </script>
+</body>
+</html>
