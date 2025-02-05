@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phishing Pre-Quiz</title>
     <link rel="stylesheet" href="../../css/module-style.css">
+    <link rel="stylesheet" href="../../css/quiz-style.css">
     <script src="../../js/phishing.js" defer></script>
 </head>
 <body class="post-quiz">
@@ -26,21 +27,35 @@
         </div>
         <div id="results" style="display: none;">
             <h2>Your Results</h2>
-            <ul id="feedback"></ul>
+            <div id="feedback-container">
+                <!-- Placeholder elements for phishing.js to update dynamically -->
+                <div class="feedback-item">
+                    <img class="feedback-image" src="" alt="Question Image">
+                    <div class="feedback-text">
+                        <p class="question-text"></p>
+                        <p class="answer-text"></p>
+                        <p class="improvement-text"></p>
+                    </div>
+                </div>
+            </div>
             <p id="score"></p>
             <button onclick="goToModule()">Back to Phishing Module</button>
-        </div>        
+        </div>          
     </main>
     <script>
-
         document.addEventListener("DOMContentLoaded", function () {
             console.log("Post-Quiz Page Loaded");
-            startQuiz(false); // Post-quiz should pass `false`
+
+            if (!localStorage.getItem("preQuizResults")) {
+                alert("You must complete the pre-quiz before taking the post-quiz.");
+                window.location.href = "index.html"; // Redirect back to module
+            } else {
+                startQuiz(false); // Only start the post-quiz if pre-quiz data exists
+            }
         });
 
         function goToModule() {
-            //localStorage.setItem('preQuizComplete', 'true'); // Mark pre-quiz as complete
             window.location.href = "index.html"; // Redirect back to phishing module
         }
     </script>
-</body>
+</body> 

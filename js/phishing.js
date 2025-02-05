@@ -172,9 +172,11 @@ function checkAnswer(answer) {
     }
 
     if (!isPreQuiz) {
-        document.getElementById("question-feedback").innerText = isCorrect 
+        // Show feedback in the post-quiz
+        const feedbackMessage = isCorrect
             ? "Correct! You identified this email correctly."
             : `Incorrect. The correct answer was "${question.correctAnswer}".`;
+        document.getElementById("question-feedback").innerText = feedbackMessage;
     }
 
     // Move to next question or show results
@@ -187,45 +189,68 @@ function checkAnswer(answer) {
 }
 
 // Show quiz results
+
 function showResults() {
     document.querySelector("#quiz-content").style.display = "none";
 
     if (isPreQuiz) {
+        localStorage.setItem("preQuizResults", JSON.stringify(feedback));
+        localStorage.setItem("preQuizScore", score.toString());
+        document.getElementById("completion-message").style.display = "block";
         unlockModule();
     } else {
         const preQuizResults = JSON.parse(localStorage.getItem("preQuizResults")) || [];
-        const resultsContainer = document.querySelector("#results");
-        const feedbackList = document.getElementById("feedback");
+        const feedbackContainer = document.getElementById("feedback-container");
+
+        feedbackContainer.innerHTML = ""; // Clear previous content
 
         feedback.forEach((item, index) => {
             const preQuizResult = preQuizResults.find(q => q.questionId === item.questionId);
-            const improvement = preQuizResult
-                ? item.correct && !preQuizResult.correct
-                    ? "Improved"
-                    : item.correct && preQuizResult.correct
-                    ? "Consistent"
-                    : "Still Incorrect"
-                : "New Question";
+            
+            let improvement;
+            if (!preQuizResult) {
+                improvement = "No previous data";
+            } else if (!preQuizResult.correct && item.correct) {
+                improvement = "Improved"; // Wrong in pre-quiz, right in post-quiz
+            } else if (preQuizResult.correct && item.correct) {
+                improvement = "Consistent"; // Right in both quizzes
+            } else if (preQuizResult.correct && !item.correct) {
+                improvement = "Regressed"; // Right in pre-quiz, wrong in post-quiz
+            } else {
+                improvement = "Still Incorrect"; // Wrong in both
+            }
 
-            const feedbackItem = document.createElement("li");
-            feedbackItem.className = item.correct ? "correct" : "incorrect";
-            feedbackItem.innerHTML = `
-                <img src="${item.imgSrc}" alt="Question ${index + 1}">
-                <p>
-                    <strong>Question ${index + 1}:</strong> 
-                    You answered <span style="color: ${item.correct ? '#4CAF50' : '#F44336'};">
+            // Create feedback item dynamically
+            const feedbackItem = document.createElement("div");
+            feedbackItem.className = `feedback-item ${item.correct ? "correct" : "incorrect"}`;
+
+            // Create image element
+            const imgElement = document.createElement("img");
+            imgElement.className = "feedback-image";
+            imgElement.src = item.imgSrc; // Set the correct source
+            imgElement.alt = `Question ${index + 1}`;
+
+            // Create text container
+            const textContainer = document.createElement("div");
+            textContainer.className = "feedback-text";
+
+            textContainer.innerHTML = `
+                <p class="question-text"><strong>Question ${index + 1}:</strong></p>
+                <p class="answer-text">You answered <span style="color: ${item.correct ? '#4CAF50' : '#F44336'};">
                     ${item.correct ? "correctly" : "incorrectly"}</span>. 
                     The correct answer was <strong>${item.correctAnswer}</strong>.
-                    <br><em>${improvement}</em>
                 </p>
+                <p class="improvement-text"><em>${improvement}</em></p>
             `;
-            feedbackList.appendChild(feedbackItem);
+
+            feedbackItem.appendChild(imgElement);
+            feedbackItem.appendChild(textContainer);
+            feedbackContainer.appendChild(feedbackItem);
         });
 
-        resultsContainer.style.display = "block";
+        document.getElementById("results").style.display = "block";
 
-        // Score comparison
-        const preQuizScore = parseInt(localStorage.getItem("preQuizScore")) || 0;
+        const preQuizScore = parseInt(localStorage.getItem("preQuizScore") || "0");
         const improvement = score - preQuizScore;
         document.getElementById("score").innerText = `You got ${score} out of ${quizQuestions.length} correct! 
             ${improvement > 0 ? `Great job! You improved by ${improvement} point(s).` 
@@ -255,7 +280,7 @@ function resetQuiz() {
     if (confirm("Are you sure you want to reset the Pre-Quiz? Your progress will be lost.")) {
         localStorage.removeItem("preQuizComplete");
         localStorage.removeItem("preQuizScore");
-        localStorage.removeItem("preQuizResults");
+        localStorage.removeItem("preQuizResults"); // Clear pre-quiz answer data
         location.reload(); // Refresh the page to reflect changes
     }
 }
