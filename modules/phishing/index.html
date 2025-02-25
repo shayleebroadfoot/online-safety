@@ -1,9 +1,12 @@
+<!-- phishing/index.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phishing & Scams</title>
+    <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/module-style.css">
     <script src="../../js/phishing.js" defer></script>
 </head>
@@ -40,41 +43,198 @@
             <button id="pre-quiz-btn" onclick="navigateTo('pre-quiz.html')">Start Pre-Quiz</button>
         </section>
         
-        <section id="intro">
-            <h2>Understanding Phishing</h2>
-            <p>Phishing is a cybercrime in which attackers impersonate legitimate entities to trick individuals into revealing sensitive information, such as passwords and financial details. Phishing is one of the most common cybersecurity threats today.</p>
-            <p>According to the <a href="https://www.cisa.gov/topics/cyber-threats-and-advisories/phishing" target="_blank">Cybersecurity & Infrastructure Security Agency (CISA)</a>, phishing attempts have increased by over 65% in the last few years.</p>
-        </section>
-        
-        <section id="email-phishing">
-            <h2>Email Phishing: What to Watch For</h2>
-            <p>Email phishing is the most common type of phishing attack. Cybercriminals send fraudulent emails that appear to be from trusted sources to trick recipients into clicking malicious links or downloading malware.</p>
+        <section id="introduction">
+            <h2>What is Phishing?</h2>
+            <p>Phishing is a form of cyber attack where malicious individuals impersonate legitimate entities to deceive individuals into 
+                revealing sensitive information, such as usernames, passwords, or credit card details. This practice is prevalent across various platforms, 
+                including emails, websites, and SMS messages, and poses significant risks to all users, especially students and international audiences 
+                who may be less familiar with local digital security threats.</p>
+                
+                <p>According to the <a href="https://www.cisa.gov/topics/cyber-threats-and-advisories/phishing" target="_blank">Cybersecurity & Infrastructure Security Agency (CISA)</a>, phishing attempts have increased by over 65% in the last few years.</p>
+
+            <h3>Common Phishing Techniques</h3>
             <ul>
-                <li><strong>Suspicious Sender Address:</strong> Attackers often use fake email addresses that resemble official ones.</li>
-                <li><strong>Urgent or Threatening Language:</strong> Emails may create panic to rush victims into action.</li>
-                <li><strong>Links and Attachments:</strong> These often contain malware or direct users to fake websites.</li>
+                <li><strong>Deceptive Emails (Email Phishing):</strong> Attackers send emails that appear to originate from trusted organizations, such as educational institutions, banks, or service providers. 
+                    These emails often prompt recipients to click on malicious links or download harmful attachments, leading to credential theft or malware installation.</li>
+                <li><strong>Spoofed Websites:</strong> Phishers create counterfeit websites that closely mimic legitimate ones. Unsuspecting users may enter personal information into 
+                    these fake sites, inadvertently providing attackers with access to sensitive data.</li> 
+                <li><strong>Fraudulent SMS Messages (Smishing):</strong> This involves sending deceptive text messages that appear to come from reputable sources, urging recipients 
+                    to click on malicious links or disclose personal information.</li>
+                <li><strong>Voice Phishing (Vishing):</strong> Attackers make phone calls pretending to be from legitimate organizations, such as banks or government agencies, 
+                    to extract personal information from individuals.</li>
+                <li><strong>Social Media Deception:</strong> Fraudsters use social media platforms to impersonate friends, family, or organizations, sending messages 
+                    that contain malicious links or requests for personal information.</li>
             </ul>
-            <!-- <img src="../../assets/images/phishing/email-example.png" alt="Phishing Email Example"> -->
+
+            <h2>What are Scams?</h2>
+            <p>Scams encompass a broader range of fraudulent schemes designed to deceive individuals into providing money, personal information, or other valuables. These schemes often 
+                exploit the trust and naivety of individuals, presenting false promises or threats to elicit the desired response.</p>
+
+            <h3>Common Scams Targeting Students</h3>
+            <ul>
+                <li><strong>Employment Scams:</strong> Fraudsters post fake job listings or send unsolicited job offers, enticing students with attractive salaries for minimal work. Victims 
+                    may be asked to pay upfront fees for training or equipment, or provide personal information that can be used for identity theft.</li>
+                <li><strong>Accommodation Scams:</strong> Scammers advertise non-existent or unavailable rental properties at attractive rates. Students are persuaded to send deposits or 
+                    personal information before viewing the property, leading to financial loss and potential identity theft.</li>
+                <li><strong>Online Purchase Frauds:</strong> Students may encounter counterfeit or non-delivered goods when shopping online from unverified sources, resulting in
+                    financial loss and compromised personal information.</li>
+                <li><strong>Scholarship and Grant Scams:</strong> Fraudulent entities offer guaranteed scholarships or grants in exchange for an upfront fee, resulting in financial 
+                    loss and compromised informaion</li>
+                <li><strong>Support Scams:</strong> Scammers pose as tech support representatives, claiming the student's device is compromised and requesting remote access or payment for 
+                    unnecessary services.</li>
+            </ul>
+
+            <h2>Why It Matters</h2>
+            <p>Understanding and recognizing phishing and scam tactics are crucial for students to protect themselves from financial loss, identity theft, and other adverse consequences.</p>
+            <h3>Potential Consequences</h3>
+            <ul>
+                <li><strong>Financial  Loss:</strong> Victims may lose money through fraudulent transactions, upfront fees for fake services, or unauthorized use of their financial information.</li>
+                <li><strong>Identity Theft:</strong> Personal information obtained through scams can be used to create fake identities, access existing accounts, or commit other fraudulent activities in the victim's name.</li>
+                <li><strong>Academic and Professional Repercussions:</strong> Falling victim to scams can lead to compromised academic records, loss of educational opportunities, and damage to professional reputation.</li>
+                <li><strong>Emotional Distress:</strong> The stress and anxiety resulting from being scammed can affect mental health and overall well-being.</li>  
+            </ul>
         </section>
+
+        <section id="recognizing-phishing">
+            <h2>Recognizing Phishing Attempts</h2>
+            <p>Cybercriminals use phishing tactics to deceive individuals into providing sensitive information, but these attacks often include subtle clues that can help you identify them. 
+                By knowing the <strong>red flags</strong>, you can protect yourself from falling victim to these scams.</p>
         
-        <section id="smishing-vishing">
-            <h2>Other Types of Phishing: Smishing & Vishing</h2>
-            <div class="phishing-types">
-                <div class="type">
-                    <h3>Smishing (SMS Phishing)</h3>
-                    <p>Attackers send fraudulent text messages pretending to be from banks, delivery companies, or government agencies.</p>
-                    <!-- <img src="../../assets/images/phishing/smishing-example.png" alt="Smishing Example"> -->
-                </div>
-                <div class="type">
-                    <h3>Vishing (Voice Phishing)</h3>
-                    <p>Scammers use phone calls to impersonate trusted entities and steal sensitive information.</p>
-                    <!-- <img src="../../assets/images/phishing/vishing-example.png" alt="Vishing Example"> -->
-                </div>
-            </div>
+            <h3>Red Flags to Look Out For</h3>
+            <p>Phishing emails, messages, and websites often share common characteristics that can help you recognize them. Here are the key warning signs:</p>
+        
+            <h3>1. Suspicious Email Addresses</h3>
+            <p>Attackers often use email addresses that look similar to official ones but contain slight alterations.</p>
+            <ul>
+                <li><strong>Legitimate:</strong> support@university.edu</li>
+                <li><strong>Phishing Attempt:</strong> support.univeristy@gmail.com</li>
+            </ul>
+            <p><strong>What to Look For:</strong></p>
+            <ul>
+                <li>Official organizations won’t use free email services like <strong>@gmail.com, @yahoo.com, or @outlook.com</strong>.</li>
+                <li>Attackers may use <strong>misspelled domain names</strong> (e.g., support@univeristy.edu instead of support@university.edu).</li>
+                <li>Hover over the sender’s email to reveal the real address—attackers can <strong>spoof display names</strong> to appear legitimate.</li>
+            </ul>
+        
+            <h3>2. Spelling and Grammar Mistakes</h3>
+            <p>Professional organizations rarely send out emails with poor grammar or spelling errors.</p>
+            <ul>
+                <li><strong>Phishing Attempt:</strong> "Dear costumer, your account has been locked due to suspicious activty. Pleese verify your credentials immediately!"</li>
+                <li><strong>Legitimate Email:</strong> "Dear customer, we detected unusual activity on your account. If this was not you, please reset your password using the link below."</li>
+            </ul>
+            <p><strong>What to Look For:</strong></p>
+            <ul>
+                <li>Typos and grammatical errors in subject lines or body text.</li>
+                <li>Unnatural phrasing or missing words.</li>
+                <li>Random capitalizations or formatting inconsistencies.</li>
+            </ul>
+        
+            <h3>3. Urgent Language or Threats</h3>
+            <p>Phishing emails frequently use <strong>fear-based tactics</strong> to pressure victims into acting quickly before they have time to think critically.</p>
+            <ul>
+                <li>"Your account has been compromised! Immediate action required!"</li>
+                <li>"Failure to respond within 24 hours will result in account suspension."</li>
+                <li>"Confirm your billing details now, or your service will be interrupted."</li>
+            </ul>
+            <p><strong>What to Look For:</strong></p>
+            <ul>
+                <li>Emails pressuring you to act immediately.</li>
+                <li>Threats of negative consequences.</li>
+                <li>Emotional manipulation.</li>
+            </ul>
+        
+            <h3>4. Requests for Personal or Financial Information</h3>
+                <p>Legitimate companies and institutions <strong>will not</strong> request your login credentials, Social Security number, banking details, or credit card information via email, text, or phone call.</p>
+            <blockquote>
+                "Dear User,  
+                Due to recent suspicious activity, we require you to confirm your account details. Please click the link below and enter your banking information to verify your identity. Failure to do so will result in account suspension."
+            </blockquote>
+            <p><strong>What to Look For:</strong></p>
+            <ul>
+                <li>Requests for passwords, PINs, or security codes.</li>
+                <li>Links to enter credit card or Social Security numbers.</li>
+                <li>Unexpected attachments.</li>
+            </ul>
+        
+            <h2>Phishing Examples</h2>
+        
+            <h3>Example 1: A Fake University Email</h3>
+            <p><strong>📧 Subject:</strong> "URGENT: Your Student Portal Access is About to Expire!"</p>
+            <p><strong>Sender:</strong> admin@univeristy-support.com (Note the misspelling in "university")</p>
+            <p><strong>🚩 Red Flags in This Email:</strong></p>
+            <ul>
+                <li>Misspelled domain name → univeristy-support.com instead of university.edu</li>
+                <li>Urgent language → "Your access is about to expire!"</li>
+                <li>Clickbait-style CTA → "Click the link below to prevent deactivation"</li>
+                <li>Fake link → http://university-verify.com (not the official portal)</li>
+            </ul>
+        
+            <h3>Example 2: Fake Banking Notification</h3>
+            <p><strong>📧 Subject:</strong> "Your Scotiabank Account Has Been Locked. Immediate Action Required!"</p>
+            <p><strong>Sender:</strong> security@scotiabank-secure.com</p>
+
+            <p><strong>🚩 Red Flags in This Email:</strong></p>
+            <ul>
+                <li>Fake sender address → scotiabank-secure.com (Real Scotiabank emails come from @scotiabank.com).</li>
+                <li>Threatening language → "Your account has been locked due to suspicious activity."</li>
+                <li>Suspicious link → "Click here to verify your account" (link actually leads to a phishing site).</li>
+                <li>Request for credentials → A real bank **will never** ask for your login details via email.</li>
+            </ul>
+        </section>  
+        
+        <section id="staying-safe">
+            <h2>How to Stay Safe from Phishing and Scams</h2>
+        
+            <h3>Identifying Legitimate Communications</h3>
+            <p>Phishing emails often look real, but following these steps can help you verify whether an email, text, or call is legitimate:</p>
+            <ul>
+                <li><strong>Go to the official website manually:</strong> Instead of clicking links in an email, type the organization's website address into your browser.</li>
+                <li><strong>Check the sender’s email address carefully:</strong> Official emails will always come from a verified domain (e.g., <code>@canada.ca</code>, <code>@scotiabank.com</code>).</li>
+                <li><strong>Look for grammar and spelling mistakes:</strong> Government agencies and banks don’t send emails with poor wording or typos.</li>
+                <li><strong>Call the organization directly:</strong> If you receive a suspicious message, contact the company using the official number listed on their website.</li>
+            </ul>
+        
+            <h3>Using Technology to Stay Safe</h3>
+            <p>Technology can provide extra layers of security. Here’s how you can protect yourself:</p>
+            <ul>
+                <li><strong>Password Managers:</strong> Use a trusted password manager to generate and store unique, secure passwords for every site.</li>
+                <li><strong>Multi-Factor Authentication (MFA):</strong> Enable MFA on your email, banking, and student accounts. This requires a second step (e.g., SMS code, authenticator app) before logging in.</li>
+                <li><strong>Secure Your Devices:</strong> Keep your software and antivirus up to date to protect against malware and security breaches.</li>
+            </ul>
+        
+            <h3>Avoiding Common Scams</h3>
+            <p>Students, especially international students, are often targeted with scams. Here’s how to avoid them:</p>
+            
+            <h4>🏠 Rental Scams</h4>
+            <ul>
+                <li><strong>Never send money before seeing a place in person:</strong> Scammers post fake listings and demand deposits before providing details.</li>
+                <li><strong>Use trusted rental websites:</strong> Avoid deals that seem too good to be true.</li>
+                <li><strong>Verify the landlord:</strong> Search the landlord’s name and phone number online before signing anything.</li>
+            </ul>
+        
+            <h4>💼 Job Scams</h4>
+            <ul>
+                <li><strong>Be wary of unsolicited job offers:</strong> If you didn’t apply for a job, it's likely a scam.</li>
+                <li><strong>Never pay for training or application fees:</strong> Legitimate employers won’t ask for money upfront.</li>
+                <li><strong>Research the company:</strong> Look for official websites, LinkedIn profiles, and online reviews.</li>
+            </ul>
+        
+            <h4>💰 Financial Fraud</h4>
+            <ul>
+                <li><strong>Beware of unexpected messages about "overpayments":</strong> Scammers may claim they accidentally sent you extra money and ask you to return it.</li>
+                <li><strong>Be cautious with money transfers:</strong> Once you send money via e-transfer, it’s often impossible to get it back.</li>
+            </ul>
+        
+            <h4>🌎 Immigration and International Student Scams</h4>
+            <ul>
+                <li><strong>Fake Universities:</strong> Some fraudulent institutions target international students with fake admissions offers.</li>
+                <li><strong>Government Impersonation Scams:</strong> Scammers pretend to be from Immigration Canada (IRCC) and demand immediate payments for "visa issues." The real IRCC will never ask for personal information via email or phone.</li>
+                <li><strong>Verify with the official website:</strong> Always check <a href="https://www.canada.ca/en/immigration-refugees-citizenship.html" target="_blank">Canada’s official immigration website</a>.</li>
+            </ul>
         </section>
         
         <section id="preventing-phishing">
-            <h2>How to Protect Yourself</h2>
+            <h2>Online Safety Review</h2>
             <ul>
                 <li><strong>Verify Email Senders:</strong> Always double-check the sender’s address before clicking on links.</li>
                 <li><strong>Hover Over Links:</strong> Inspect links before clicking to ensure they lead to legitimate websites.</li>

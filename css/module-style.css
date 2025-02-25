@@ -1,133 +1,145 @@
-/* General Styling */
+/* ==============================
+   GENERAL STYLES
+   ============================== */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     background: #f9f9f9;
     color: #333;
-    line-height: 1.6;
+    line-height: 1.7;
 }
 
-/* Header */
-header {
-    text-align: center;
-    background: #283593; /* Navy Blue */
-    color: white;
-    padding: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Navigation Tabs */
-nav ul {
-    display: flex;
-    justify-content: center;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    background: #3949AB; /* Slightly lighter blue */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-nav ul li {
-    margin: 0 10px;
-}
-
-nav ul li a {
-    color: white;
-    padding: 12px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background 0.3s ease, transform 0.2s ease;
-}
-
-nav ul li a:hover,
-nav ul li a.active {
-    background: #E8EAF6; /* Light grey-blue */
-    color: #283593;
-    transform: scale(1.05);
-}
-
-/* Progress Bar */
-#progress-bar-container {
-    width: 100%;
-    height: 10px;
-    background: #ddd;
-    margin: 20px 0;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-#progress-bar {
-    width: 0%;
-    height: 100%;
-    background: #4CAF50;
-    transition: width 0.5s ease-in-out;
-}
-
-
-/* ============================
-   Section Styling (Expanded)
-   ============================ */
 main {
-    max-width: 85%; /* Increase content width */
-    margin: 0 auto;
+    max-width: 80%;
+    margin: 2rem auto;
     padding: 2rem;
     background: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
 }
 
-/* Consistent section styling */
+nav {
+    line-height: 1; /* Reset line-height for nav */
+}
+
+.tabs {
+    font-size: 16px !important;
+}
+
+/* ==============================
+   HEADERS & SECTION STYLES
+   ============================== */
+
+h2, h3 {
+    color: #1A237E;
+}
+
+h2 {
+    font-size: 1.9rem;
+    margin-bottom: 1rem;
+    padding-left: 10px;
+    border-left: 5px solid #3949AB;
+}
+
 section {
     margin-bottom: 2rem;
     padding: 2rem;
     border-radius: 10px;
     background: #f5f5f5;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 section:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
 }
 
-/* Headings */
-h2 {
-    color: #1A237E;
-    font-size: 1.8rem;
-    margin-bottom: 1rem;
-}
-
-/* List Styling */
-ul {
-    padding-left: 1.5rem;
-    font-size: 1.1rem;
-}
-
-ul li {
-    margin-bottom: 0.8rem;
-}
-
-/* ============================
-   Quiz Reset
-   ============================ */
-/* Pre-Quiz Section */
 .pre-quiz-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    width: 100%;
 }
 
-/* Reset Icon */
-#reset-quiz-btn img {
-    width: 30px; /* Adjust size */
-    height: 30px;
-    /* opacity: 0.7;  */
-    transition: opacity 0.2s ease, transform 0.2s ease;
+section:nth-child(odd) {
+    background:#E3F2FD;
+    color: blacks;
 }
 
-/* Reset Quiz Button */
+section:nth-child(even) {
+    background: white;
+}
+
+/* ==============================
+   LISTS & TEXT STYLING
+   ============================== */
+ul {
+    padding-left: 20px;
+    font-size: 1.1rem;
+    list-style: none;
+}
+
+ul li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 0.8rem;
+}
+
+ul li::before {
+    content: '\2022'; /* Bullet point */
+    position: absolute;
+    left: 0;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #3949AB;
+}
+
+blockquote {
+    background: #E8EAF6;
+    padding: 1rem 1.5rem;
+    border-left: 5px solid #3949AB;
+    font-style: italic;
+    margin: 1.5rem 0;
+}
+
+
+/* ==============================
+   BUTTONS & INTERACTIVITY
+   ============================== */
+/* button {
+    background: linear-gradient(90deg, #4CAF50, #388E3C);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1.1rem;
+}
+
+button:hover {
+    background: linear-gradient(90deg, #388E3C, #2E7D32);
+    transform: translateY(-3px);
+} */
+
+button {
+    background: linear-gradient(45deg, #6A0DAD, #0084FF); /* Purple-to-Blue Gradient */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: 0.3s ease-in-out;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #0084FF, #6A0DAD);
+    transform: scale(1.05);
+}
+
 #reset-quiz-btn {
     background: #F44336; 
     color: white;
@@ -143,103 +155,47 @@ ul li {
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
+#reset-quiz-btn img {
+    width: 30px; 
+    height: 30px;
+
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
 #reset-quiz-btn:hover img {
     opacity: 1;
     transform: scale(1.1);
 }
 
 #reset-quiz-btn:hover {
-    background: #D32F2F; /* Darker red */
+    background: #D32F2F; 
     transform: translateY(-2px);
 }
 
-/* ============================
-   Phishing & Scams Specific
-   ============================ */
-/* Layout for phishing email examples */
-.email-example {
-    position: relative;
-    margin: 20px auto;
-    text-align: center;
-    max-width: 90%;
-}
-
-.email-example img {
-    max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-}
-
-/* Phishing Types Section */
-.phishing-types {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
-    justify-content: space-between;
-}
-
-.type {
-    flex: 1;
-    background: white;
-    padding: 1.5rem;
-    border-radius: 10px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.type:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-.type img {
-    max-width: 100%;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-/* ============================
-   Interactive Elements
-   ============================ */
-.email-part {
-    position: absolute;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid #ddd;
+/* ==============================
+   PROGRESS BAR
+   ============================== */
+#progress-bar-container {
+    width: 100%;
+    height: 12px;
+    background: #ddd;
+    margin: 20px 0;
     border-radius: 5px;
-    padding: 5px 10px;
-    cursor: pointer;
-    transition: transform 0.3s ease, background 0.3s ease;
+    overflow: hidden;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
-.email-part:hover {
-    background: #4CAF50; /* Green tint */
-    color: white;
-    transform: scale(1.1);
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: linear-gradient(90deg, #4CAF50, #1B5E20);
+    transition: width 0.5s ease-in-out;
 }
 
-/* ============================
-   Buttons
-   ============================ */
-button {
-    background: #4CAF50;
-    color: white;
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.2s ease;
-    font-size: 1.1rem;
-}
+/* ==============================
+   POP UPS
+   ============================== */
 
-button:hover {
-    background: #388E3C;
-    transform: translateY(-3px);
-}
-
-/* ============================
-   Popup Modal
-   ============================ */
 #popup {
     position: fixed;
     top: 0;
@@ -269,9 +225,284 @@ button:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* ============================
-   Responsive Design
-   ============================ */
+/* ==============================
+   RESPONSIVE DESIGN
+   ============================== */
+@media (max-width: 1024px) {
+    main {
+        max-width: 90%;
+        padding: 1.5rem;
+    }
+    section {
+        padding: 1.5rem;
+    }
+    h2 {
+        font-size: 1.7rem;
+    }
+}
+
+@media (max-width: 768px) {
+    ul li {
+        padding-left: 20px;
+    }
+    ul li::before {
+        font-size: 1.2rem;
+    }
+    section {
+        padding: 1rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+
+
+
+/* module-style.css
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+header {
+    text-align: center;
+    background: #283593; 
+    color: white;
+    padding: 1.5rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    background: #3949AB; 
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    padding: 12px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    background: #E8EAF6; 
+    color: #283593;
+    transform: scale(1.05);
+}
+
+#progress-bar-container {
+    width: 100%;
+    height: 10px;
+    background: #ddd;
+    margin: 20px 0;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+#progress-bar {
+    width: 0%;
+    height: 100%;
+    background: #4CAF50;
+    transition: width 0.5s ease-in-out;
+}
+
+
+main {
+    max-width: 85%; 
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+section {
+    margin-bottom: 2rem;
+    padding: 2rem;
+    border-radius: 10px;
+    background: #f5f5f5;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    color: #1A237E;
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+}
+
+ul {
+    padding-left: 1.5rem;
+    font-size: 1.1rem;
+}
+
+ul li {
+    margin-bottom: 0.8rem;
+}
+
+.pre-quiz-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#reset-quiz-btn img {
+    width: 30px; 
+    height: 30px;
+
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+#reset-quiz-btn {
+    background: #F44336; 
+    color: white;
+    border: none;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    font-size: 14px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#reset-quiz-btn:hover img {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+#reset-quiz-btn:hover {
+    background: #D32F2F; 
+    transform: translateY(-2px);
+}
+
+
+.email-example {
+    position: relative;
+    margin: 20px auto;
+    text-align: center;
+    max-width: 90%;
+}
+
+.email-example img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+
+.phishing-types {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-between;
+}
+
+.type {
+    flex: 1;
+    background: white;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.type:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.type img {
+    max-width: 100%;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.email-part {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.email-part:hover {
+    background: #4CAF50; 
+    color: white;
+    transform: scale(1.1);
+}
+
+button {
+    background: #4CAF50;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    font-size: 1.1rem;
+}
+
+button:hover {
+    background: #388E3C;
+    transform: translateY(-3px);
+}
+
+#popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s ease;
+}
+
+#popup:not(.hidden) {
+    visibility: visible;
+    opacity: 1;
+}
+
+.popup-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
 @media (max-width: 1024px) {
     main {
         max-width: 95%;
@@ -305,4 +536,4 @@ button:hover {
     h2 {
         font-size: 1.5rem;
     }
-}
+}  */
