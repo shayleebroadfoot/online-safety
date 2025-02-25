@@ -1,29 +1,5 @@
 /* phishing.js */
 
-// document.addEventListener("DOMContentLoaded", function () {
-//     console.log("Initializing page...");
-
-//     // Check if we're on the phishing module page
-//     if (document.body.classList.contains("phishing-module")) {
-//         console.log("Phishing module detected. Running initializeModule().");
-//         initializeModule();
-//     } else {
-//         console.log("Not on phishing module. Skipping initializeModule().");
-//     }
-
-//     // Start pre-quiz if on pre-quiz page
-//     if (document.body.classList.contains("pre-quiz")) {
-//         console.log("Pre-Quiz Page Loaded");
-//         startQuiz(true);
-//     }
-
-//     // Start post-quiz if on post-quiz page
-//     if (document.body.classList.contains("post-quiz")) {
-//         console.log("Post-Quiz Page Loaded");
-//         startQuiz(false);
-//     }
-// });
-
 // Navigate to a different page
 function navigateTo(url) {
     console.log("Navigating to:", url); 
@@ -43,80 +19,6 @@ const quizQuestions = [
     { imgSrc: "../../assets/images/phishing/quiz-examples/example9.png", correctAnswer: "phishing" },
     { imgSrc: "../../assets/images/phishing/quiz-examples/example10.png", correctAnswer: "phishing" }
 ];
-
-// Initialize Module Steps and Progress
-// function initializeModule() {
-//     const steps = document.querySelectorAll('.step');
-//     const progressBar = document.getElementById('progress-bar');
-
-//     // If pre-quiz has been completed, unlock full module
-//     if (localStorage.getItem('preQuizComplete') === 'true') {
-//         steps.forEach(step => {
-//             step.style.opacity = 1;
-//             step.style.pointerEvents = 'auto';
-//         });
-
-//         document.getElementById('pre-quiz-btn').disabled = true; // Disable pre-quiz button
-//         document.getElementById('pre-quiz-btn').innerText = "Completed ✅";
-
-//         progressBar.style.width = '50%'; // Set progress halfway
-//     } else {
-//         // Grey out everything except the pre-quiz
-//         steps.forEach((step, index) => {
-//             if (index === 0) {
-//                 step.style.opacity = 1;
-//                 step.style.pointerEvents = 'auto';
-//             } else {
-//                 step.style.opacity = 0.5;
-//                 step.style.pointerEvents = 'none';
-//             }
-//         });
-//     }
-// }
-
-// function initializeModule() {
-//     console.log("Initializing module...");
-
-//     const steps = document.querySelectorAll('.step');
-//     const progressBar = document.getElementById('progress-bar');
-//     const preQuizButton = document.getElementById('pre-quiz-btn');
-
-//     // Ensure pre-quiz button exists before modifying it
-//     if (preQuizButton) {
-//         if (localStorage.getItem('preQuizComplete') === 'true') {
-//             preQuizButton.disabled = true;
-//             preQuizButton.innerText = "Completed ✅";
-//         }
-//     } else {
-//         console.warn("pre-quiz-btn not found in DOM.");
-//     }
-
-//     // Ensure progress bar exists before modifying it
-//     if (progressBar) {
-//         let progress = localStorage.getItem('preQuizComplete') === 'true' ? 50 : 0;
-//         progressBar.style.width = `${progress}%`;
-//     } else {
-//         console.warn("progress-bar not found in DOM.");
-//     }
-
-//     // Unlock full module if pre-quiz is completed
-//     if (localStorage.getItem('preQuizComplete') === 'true') {
-//         steps.forEach(step => {
-//             step.style.opacity = 1;
-//             step.style.pointerEvents = 'auto';
-//         });
-//     } else {
-//         steps.forEach((step, index) => {
-//             if (index === 0) {
-//                 step.style.opacity = 1;
-//                 step.style.pointerEvents = 'auto';
-//             } else {
-//                 step.style.opacity = 0.5;
-//                 step.style.pointerEvents = 'none';
-//             }
-//         });
-//     }
-// }
 
 function initializeModule() {
     console.log("Initializing module...");
@@ -234,11 +136,6 @@ function checkAnswer(answer) {
 function showResults() {
     document.querySelector("#quiz-content").style.display = "none";
 
-    // if (isPreQuiz) {
-    //     localStorage.setItem("preQuizResults", JSON.stringify(feedback));
-    //     localStorage.setItem("preQuizScore", score.toString());
-    //     document.getElementById("completion-message").style.display = "block";
-    //     unlockModule();
     if (isPreQuiz) {
         if (!localStorage.getItem("preQuizResults")) {
             localStorage.setItem("preQuizResults", JSON.stringify(feedback)); 
@@ -358,21 +255,6 @@ function resetQuiz() {
     }
 }
 
-// function resetQuiz() {
-//     if (confirm("Are you sure you want to reset the Pre-Quiz? Your progress will be lost.")) {
-//         localStorage.removeItem("preQuizComplete");
-//         localStorage.removeItem("preQuizScore");
-//         localStorage.removeItem("preQuizResults");
-//         localStorage.removeItem("postQuizComplete"); // Also reset post-quiz progress
-//         updateProgressBar();
-//         location.reload(); // Refresh the page to reflect changes
-//     }
-// }
-
-// Call updateProgressBar() when the page loads
-// document.addEventListener("DOMContentLoaded", function () {
-//     updateProgressBar();
-// });
 document.addEventListener("DOMContentLoaded", function () {
     console.log("Initializing page...");
 
